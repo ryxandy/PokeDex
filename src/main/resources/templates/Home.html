@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Home Page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light shadow bg-danger px-3">
+    <div class="container-fluid">
+        <div class="navbar-brand">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon text-white"></span>
+            </button>
+
+
+        </div>
+
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="">Página Principal</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<img  class="rounded mx-auto d-block"  th:src="@{/images/poke-logo.png}" width="200" alt="logo"/>
+<br><br>
+<main class="d-flex justify-content-center">
+
+<div class="col-md-10 shadow">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Weakness</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Dragonite</td>
+            <td>Dragon</td>
+            <td>Flying</td>
+            <td><button  class="bi bi-pen btn btn-warning"> Editar</button></td>
+            <td><button  class="bi bi-trash btn btn-danger"> Delete</button></td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Gemgar</td>
+            <td>Dark</td>
+            <td>Psych</td>
+            <td><button  class="bi bi-pen btn btn-warning"> Editar</button></td>
+            <td><button  class="bi bi-trash btn btn-danger"> Delete</button></td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Charizard</td>
+            <td>Fire</td>
+            <td>Water</td>
+            <td><button  class="bi bi-pen btn btn-warning"> Editar</button></td>
+            <td><button  class="bi bi-trash btn btn-danger"> Delete</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</main>
+
+<div class="fixed-bottom">
+    <footer class="text-center text-lg-start bg-white">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            Developed by Alexandre © 2021 Copyright:
+            <a class="text-dark" href="#">GitHub Repository</a>
+        </div>
+    </footer>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -36,7 +37,7 @@
     </div>
 </div>
 </nav>
-<img  class="rounded mx-auto d-block"  th:src="@{/images/poke-logo.png}" width="200" alt="logo"/>
+<img  class="rounded mx-auto d-block my-3"  th:src="@{/images/poke-logo.png}" width="200" alt="logo"/>
 <br><br>
 <main class="d-flex justify-content-center">
 
@@ -53,27 +54,11 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Dragonite</td>
-            <td>Dragon</td>
-            <td>Flying</td>
-            <td><button  class="bi bi-pen btn btn-warning"> Editar</button></td>
-            <td><button  class="bi bi-trash btn btn-danger"> Delete</button></td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Gemgar</td>
-            <td>Dark</td>
-            <td>Psych</td>
-            <td><button  class="bi bi-pen btn btn-warning"> Editar</button></td>
-            <td><button  class="bi bi-trash btn btn-danger"> Delete</button></td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Charizard</td>
-            <td>Fire</td>
-            <td>Water</td>
+        <tr th:each="pokemons : ${Pokemons}">
+            <th scope="row" th:text="${pokemons.id}"></th>
+            <td th:text="${pokemons.name}"></td>
+            <td th:text="${pokemons.type}"></td>
+            <td th:text="${pokemons.weakness}"></td>
             <td><button  class="bi bi-pen btn btn-warning"> Editar</button></td>
             <td><button  class="bi bi-trash btn btn-danger"> Delete</button></td>
         </tr>

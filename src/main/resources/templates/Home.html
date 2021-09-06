@@ -59,13 +59,12 @@
             <td th:text="${pokemons.name}"></td>
             <td th:text="${pokemons.type}"></td>
             <td th:text="${pokemons.weakness}"></td>
-            <td><button  class="bi bi-pen btn btn-warning"> Editar</button></td>
-            <td><button  class="bi bi-trash btn btn-danger"> Delete</button></td>
+            <td><a><button  class="bi bi-pen btn btn-warning"> Editar</button></a></td>
+            <td><a th:href="${'/home/delete/' + pokemons.id}"><button class="bi bi-trash btn btn-danger"> Delete</button></a></td>
         </tr>
         </tbody>
     </table>
 </div>
-
 </main>
 
 <div class="fixed-bottom">

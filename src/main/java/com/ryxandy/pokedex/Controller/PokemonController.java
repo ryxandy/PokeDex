@@ -41,7 +41,7 @@ public class PokemonController {
     }
 
     @GetMapping(path = "/home/delete/{id}")
-    public String deletePokemon(Model model,@PathVariable int id) {
+    public String deletePokemon(@PathVariable int id) {
             Optional<Pokemon> pokemon = pokemonRepository.findById(id);
             if (pokemon.isPresent()){
                 pokemonRepository.delete(pokemon.get());

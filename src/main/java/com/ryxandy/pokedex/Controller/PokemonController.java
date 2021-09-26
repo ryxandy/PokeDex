@@ -16,6 +16,7 @@ public class PokemonController {
 
     @Autowired
     PokemonRepository pokemonRepository;
+
     @Autowired
     Optional<Pokemon> pokemon;
 
@@ -49,6 +50,18 @@ public class PokemonController {
             }
              return "Home";
         }
+
+    @PostMapping(path = "/home/edit/{id}")
+    public String editPokemon(Model model,@PathVariable int id) {
+        System.out.println("Entrei no método do edit");
+        Optional<Pokemon> pokemon = pokemonRepository.findById(id);
+        if (pokemon.isPresent()){
+            model.addAttribute("PokemonEdit", pokemon);
+            pokemonRepository.save(pokemon.get());
+            return "redirect:/home";
+        }
+        return "Home";
+      }
     }
 
 

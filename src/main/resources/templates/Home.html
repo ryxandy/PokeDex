@@ -14,48 +14,48 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light shadow bg-danger px-3">
-<div class="container-fluid">
-    <a class="navbar-brand text-white" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
-            <a class="nav-link text-white" th:href="@{/addPokemon}">Add Pokemon</a>
-            <a class="nav-link text-white" href="#">About</a>
+    <div class="container-fluid">
+        <a class="navbar-brand text-white" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+                <a class="nav-link text-white" th:href="@{/addPokemon}">Add Pokemon</a>
+                <a class="nav-link text-white" href="#">About</a>
+            </div>
         </div>
     </div>
-</div>
 </nav>
 <img  class="rounded mx-auto d-block my-3"  th:src="@{/images/poke-logo.png}" width="200" alt="logo"/>
 <br><br>
 <main class="d-flex justify-content-center">
 
-<div class="col-md-10 shadow">
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Type</th>
-            <th scope="col">Weakness</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="pokemons : ${Pokemons}">
-            <th scope="row" th:text="${pokemons.id}"></th>
-            <td th:text="${pokemons.name}"></td>
-            <td th:text="${pokemons.type}"></td>
-            <td th:text="${pokemons.weakness}"></td>
-            <td><a><button  class="bi bi-pen btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> Editar</button></a></td>
-            <td><a th:href="${'/home/delete/' + pokemons.id}"><button class="bi bi-trash btn btn-danger"> Delete</button></a></td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+    <div class="col-md-10 shadow">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Weakness</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="pokemons : ${Pokemons}">
+                <th scope="row" th:text="${pokemons.id}"></th>
+                <td th:text="${pokemons.name}"></td>
+                <td th:text="${pokemons.type}"></td>
+                <td th:text="${pokemons.weakness}"></td>
+                <td><a><button class="bi bi-pen btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> Editar</button></a></td>
+                <td><a th:href="${'/home/delete/' + pokemons.id}"><button class="bi bi-trash btn btn-danger"> Delete</button></a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -65,31 +65,31 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                        <form method="post">
-                            <div class="form-group">
-                                <br>
-                                <label for="exampleInputEmail1"><strong>Name</strong></label>
-                                <input type="text"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ex: Charmander">
-                                <small id="emailHelp" class="form-text text-muted">Tell me the name of your new Pokemon</small>
-                            </div>
-                            <div class="form-group">
-                                <label><strong>Type</strong></label>
-                                <input type="text" class="form-control" placeholder="ex: Fire">
-                            </div>
-                            <div class="form-group">
-                                <label ><strong>Weakness</strong></label>
-                                <input type="text" class="form-control"  placeholder="ex: Water">
-                            </div>
+                    <form method="post">
+                        <div class="form-group">
                             <br>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" checked>
-                                <label class="form-check-label"><strong>Is it Legendary?</strong></label>
-                            </div>
-                        </form>
-                    </div>
+                            <label for="exampleInputEmail1"><strong>Name</strong></label>
+                            <input type="text"   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ex: Charmander">
+                            <small id="emailHelp" class="form-text text-muted">Tell me the name of your new Pokemon</small>
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Type</strong></label>
+                            <input type="text" name="type"  class="form-control" placeholder="ex: Fire">
+                        </div>
+                        <div class="form-group">
+                            <label ><strong>Weakness</strong></label>
+                            <input type="text" class="form-control"  placeholder="ex: Water">
+                        </div>
+                        <br>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" checked>
+                            <label class="form-check-label"><strong>Is it Legendary?</strong></label>
+                        </div>
+                    </form>
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Close</button>
-                    <button type="button" class="btn btn-success"> Finish</button>
+                    <button type="submit" class="btn btn-success"> Finish</button>
                 </div>
             </div>
         </div>

@@ -30,7 +30,6 @@ public class PokemonController {
     @PostMapping("/addPokemon")
     String addPokemon(Pokemon pokemon){
         System.out.println("Starting to create and adding your pokemon... ");
-        pokemonRepository.save(pokemon);
         return "redirect:/home";
     }
 

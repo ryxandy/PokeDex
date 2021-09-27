@@ -5,6 +5,8 @@ import com.ryxandy.pokedex.Model.Pokemon;
 import com.ryxandy.pokedex.Repository.PokemonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,5 +33,16 @@ public class PokemonResource {
         pokeRepo.deleteById(id);
     }
 
+    @GetMapping(path = "/api/pokemon/{name}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Pokemon> findByName(@PathVariable String name){
+        return pokeRepo.findByName(name);
+    }
+
+    @PostMapping(path = "api/pokemon")
+    public ResponseEntity<Pokemon> createPokemon(@Validated @RequestBody Pokemon pokemon){
+        pokeRepo.save(pokemon);
+        return new ResponseEntity<Pokemon>(HttpStatus.CREATED);
+    }
 
 }

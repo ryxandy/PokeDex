@@ -33,16 +33,18 @@ public class PokemonResource {
         pokeRepo.deleteById(id);
     }
 
+
     @GetMapping(path = "/api/pokemon/{name}")
     @ResponseStatus(HttpStatus.OK)
     public List<Pokemon> findByName(@PathVariable String name){
         return pokeRepo.findByName(name);
     }
 
-    @PostMapping(path = "api/pokemon")
+
+    @PostMapping(path = "/api/pokemon")
     public ResponseEntity<Pokemon> createPokemon(@Validated @RequestBody Pokemon pokemon){
         pokeRepo.save(pokemon);
-        return new ResponseEntity<Pokemon>(HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 }

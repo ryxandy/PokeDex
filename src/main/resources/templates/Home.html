@@ -50,50 +50,51 @@
                 <td th:text="${pokemons.name}"></td>
                 <td th:text="${pokemons.type}"></td>
                 <td th:text="${pokemons.weakness}"></td>
-                <td><a><button class="bi bi-pen btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> Editar</button></a></td>
+                <td><a><button class="bi bi-pen btn btn-warning" data-bs-toggle="modal" th:attr="data-bs-target='#Model'+${pokemons.id }"> Editar</button></a></td>
                 <td><a th:href="${'/home/delete/' + pokemons.id}"><button class="bi bi-trash btn btn-danger"> Delete</button></a></td>
+                <!-- Modal -->
+                <div class="modal fade" th:id="'Model'+${pokemons.id}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel"> Edit Pokemon</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post">
+                                    <div class="form-group">
+                                        <br>
+                                        <label for="exampleInputEmail1"><strong>Name</strong></label>
+                                        <input type="text"   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ex: Charmander"  th:value="${pokemons.name}">
+                                        <small id="emailHelp" class="form-text text-muted">Tell me the name of your new Pokemon</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label><strong>Type</strong></label>
+                                        <input type="text" name="type"  class="form-control" placeholder="ex: Fire" th:value="${pokemons.type}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label ><strong>Weakness</strong></label>
+                                        <input type="text" class="form-control"  placeholder="ex: Water" th:value="${pokemons.weakness}">
+                                    </div>
+                                    <br>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" checked>
+                                        <label class="form-check-label"><strong>Is it Legendary?</strong></label>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Close</button>
+                                <button type="submit" class="btn btn-success"> Finish</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </tr>
             </tbody>
         </table>
     </div>
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel"> Edit Pokemon</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form method="post">
-                        <div class="form-group">
-                            <br>
-                            <label for="exampleInputEmail1"><strong>Name</strong></label>
-                            <input type="text"   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ex: Charmander">
-                            <small id="emailHelp" class="form-text text-muted">Tell me the name of your new Pokemon</small>
-                        </div>
-                        <div class="form-group">
-                            <label><strong>Type</strong></label>
-                            <input type="text" name="type"  class="form-control" placeholder="ex: Fire">
-                        </div>
-                        <div class="form-group">
-                            <label ><strong>Weakness</strong></label>
-                            <input type="text" class="form-control"  placeholder="ex: Water">
-                        </div>
-                        <br>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" checked>
-                            <label class="form-check-label"><strong>Is it Legendary?</strong></label>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Close</button>
-                    <button type="submit" class="btn btn-success"> Finish</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
 </main>
 
 <div class="fixed-bottom">

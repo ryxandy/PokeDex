@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface PokemonRepository extends CrudRepository<Pokemon,Integer> {
     List<Pokemon> findByName(String name);
+
 }

@@ -50,17 +50,14 @@ public class PokemonController {
              return "Home";
         }
 
-    @PostMapping(path = "/home/edit/{id}")
-    public String editPokemon(Model model,@PathVariable int id) {
-        System.out.println("Entrei no método do edit");
-        Optional<Pokemon> pokemon = pokemonRepository.findById(id);
-        if (pokemon.isPresent()){
-            model.addAttribute("PokemonEdit", pokemon);
-            pokemonRepository.save(pokemon.get());
-            return "redirect:/home";
-        }
-        return "Home";
-      }
+    @PostMapping("/editPokemon")
+    String editPokemon(Pokemon pokemons){
+        pokemonRepository.save(pokemons);
+        return "redirect:/home";
+     }
+
+
+
     }
 
 

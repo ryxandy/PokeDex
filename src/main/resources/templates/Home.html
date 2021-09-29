@@ -61,12 +61,13 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form method="post">
+                                <form method="post" th:action="@{editPokemon}" th:object="${pokemons}">
                                     <div class="form-group">
+                                        <input type="hidden" name="id" th:value="${pokemons.id}" >
                                         <br>
-                                        <label for="exampleInputEmail1"><strong>Name</strong></label>
-                                        <input type="text"   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ex: Charmander"  th:value="${pokemons.name}">
-                                        <small id="emailHelp" class="form-text text-muted">Tell me the name of your new Pokemon</small>
+                                        <label><strong>Name</strong></label>
+                                        <input type="text" name="name"  class="form-control" placeholder="ex: Charizard" th:value="${pokemons.name}">
+                                        <small class="form-text text-muted">Tell me the name of your new Pokemon</small>
                                     </div>
                                     <div class="form-group">
                                         <label><strong>Type</strong></label>
@@ -74,19 +75,20 @@
                                     </div>
                                     <div class="form-group">
                                         <label ><strong>Weakness</strong></label>
-                                        <input type="text" class="form-control"  placeholder="ex: Water" th:value="${pokemons.weakness}">
+                                        <input type="text" name="weakness" class="form-control"  placeholder="ex: Water" th:value="${pokemons.weakness}">
                                     </div>
                                     <br>
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" checked>
                                         <label class="form-check-label"><strong>Is it Legendary?</strong></label>
                                     </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Close</button>
+                                        <button type="submit" class="btn btn-success"> Finish</button>
+                                    </div>
                                 </form>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Close</button>
-                                <button type="submit" class="btn btn-success"> Finish</button>
-                            </div>
+
                         </div>
                     </div>
                 </div>

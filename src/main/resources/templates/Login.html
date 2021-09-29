@@ -26,7 +26,7 @@
 
 
   </head>
-  <body class="text-center">
+  <body class="text-center" style="background-color: #d8e5eb;">
     <main class="form-signin">
 
     <img class="mb-4" th:src="@{/images/logo.png}" alt="" width="100">
@@ -39,19 +39,20 @@
         </div>
     <div class="form-floating">
       <input type="text" class="form-control" name="username" id="username" placeholder="name@example.com">
-      <label for="username">Username</label>
+      <label for="username"><strong>Username</strong></label>
     </div>
     <div class="form-floating">
       <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-      <label for="password">Password</label>
+      <label for="password"><strong>Password</strong></label>
     </div>
     <button class="w-100 btn btn-lg btn-danger" type="submit">Sign in</button>
-    <div class="checkbox mb-3">
+    <div class="checkbox mb-1">
       <label>
-        <input type="checkbox" value="remember-me"> Remember me
+        <input type="checkbox" value="remember-me"> <strong>Remember me</strong>
       </label>
     </div>
-    <p class="mt-5 mb-3 text-muted"><strong>&copy;2021</strong></p>
+      <div class="border-top card-body text-center" style="text-decoration: none"><strong>Doesn't have an account?</strong> <a href="/register" style="text-decoration: none;"><strong>Register</strong></a></div>
+    <p class="mt-5 mb-3"><strong>&copy;2021</strong></p>
   </form>
 </main>
 

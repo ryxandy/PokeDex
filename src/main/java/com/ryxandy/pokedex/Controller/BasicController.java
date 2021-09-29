@@ -26,5 +26,10 @@ public class BasicController {
         return "Login";
     }
 
+    @GetMapping(path = "/register")
+    String register(){
+        return "Register";
+    }
+
 
 }

@@ -6,7 +6,7 @@ import java.util.Objects;
 @Entity
 public class Pokemon {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
     private String name;

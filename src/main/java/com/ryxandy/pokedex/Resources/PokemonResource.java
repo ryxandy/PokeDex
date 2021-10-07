@@ -3,30 +3,34 @@ package com.ryxandy.pokedex.Resources;
 
 import com.ryxandy.pokedex.Model.Pokemon;
 import com.ryxandy.pokedex.Repository.PokemonRepository;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 
 @RestController
+@RequestMapping(value = "/api")
 public class PokemonResource {
 
     @Autowired
     PokemonRepository pokeRepo;
 
 
-    @GetMapping(path = "/api/pokemons")
+    @GetMapping(path = "/pokemons")
+    @ApiOperation(value = "Show all pokemons")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public List<Pokemon> getAllPokemons(){
         System.out.println("Retrieving all Pokemons, wait a sec...");
         return (List<Pokemon>) pokeRepo.findAll();
     }
 
-    @DeleteMapping(path = "/api/pokemon/{id}")
+    @DeleteMapping(path = "/pokemon/{id}")
+    @ApiOperation(value = "Delete one pokemon using id as parameter")
     @ResponseStatus(HttpStatus.OK)
     public void deletePokemon(@PathVariable int id){
         System.out.println("Deleting the selected Pokemon, wait a sec...");
@@ -34,14 +38,17 @@ public class PokemonResource {
     }
 
 
-    @GetMapping(path = "/api/pokemon/{name}")
+
+    @GetMapping(path = "/pokemon/{name}")
+    @ApiOperation(value = "Find one pokemon using name as parameter")
     @ResponseStatus(HttpStatus.OK)
     public List<Pokemon> findByName(@PathVariable String name){
         return pokeRepo.findByName(name);
     }
 
 
-    @PostMapping(path = "/api/pokemon")
+    @PostMapping(path = "/pokemon")
+    @ApiOperation(value = "Create a new Pokemon")
     public ResponseEntity<Pokemon> createPokemon(@Validated @RequestBody Pokemon pokemon){
         pokeRepo.save(pokemon);
         return new ResponseEntity<>(HttpStatus.CREATED);

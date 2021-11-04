@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
@@ -22,12 +24,11 @@ public class PokemonController {
     @GetMapping("/addPokemon")
     String showAddPage(Model model){
         model.addAttribute("pokemon", new Pokemon());
-        System.out.println("Starting to create adding your pokemon... ");
         return "addPokemon";
     }
 
     @PostMapping("/addPokemon")
-    String addPokemon(Pokemon pokemon){
+    String addPokemon(@Valid Pokemon pokemon){
         System.out.println("Starting to create and adding your pokemon... ");
         System.out.println(pokemon.getName() + "" + pokemon.getType());
         pokemonRepository.save(pokemon);
@@ -52,7 +53,7 @@ public class PokemonController {
         }
 
     @PostMapping("/editPokemon")
-    String editPokemon(Pokemon pokemons){
+    String editPokemon(@Valid Pokemon pokemons){
         pokemonRepository.save(pokemons);
         return "redirect:/home";
      }

@@ -1,6 +1,9 @@
 package com.ryxandy.pokedex.Model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
@@ -9,10 +12,11 @@ public class Pokemon {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
+    @NotBlank
     private String name;
-
+    @NotBlank
     private String type;
-
+    @NotBlank
     private String weakness;
 
 

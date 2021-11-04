@@ -32,7 +32,7 @@
     <img class="mb-4" th:src="@{/images/logo.png}" alt="" width="100">
     <form th:action="@{loginForm}" method="post">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-        <div  th:if="${failLogin == 1}">
+        <div  th:if="${fail == 1}">
             <div class="alert alert-danger" role="alert">
                 Failed to login, Username or Password are incorrect
             </div>

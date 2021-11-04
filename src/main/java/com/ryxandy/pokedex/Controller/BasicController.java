@@ -15,8 +15,13 @@ public class BasicController {
     }
 
     @PostMapping("/loginForm")
-    String processLogin(Model model, String username, String password){
-        return "redirect:/home";
+    String processLogin(Model model,String username, String password){
+        if (username.equals("ash") && password.equals("88719588")){
+            return "redirect:/home";
+        }else
+            model.addAttribute("fail", 1);
+        return "redirect:/";
+
     }
 
     @GetMapping(path = "/register")

@@ -35,6 +35,11 @@ public class PokemonController {
         return "redirect:/home";
     }
 
+    @GetMapping("/about")
+    String About(Model model){
+        return "About";
+    }
+
     @GetMapping("/home")
     String home(Model model){
         model.addAttribute("Pokemons", pokemonRepository.findAll());

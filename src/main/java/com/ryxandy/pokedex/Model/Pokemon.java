@@ -1,9 +1,7 @@
 package com.ryxandy.pokedex.Model;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
@@ -12,13 +10,12 @@ public class Pokemon {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
-    @NotBlank
+    @NotBlank(message = "Field name cant be empty")
     private String name;
-    @NotBlank
+    @NotBlank(message = "Field Type cant be empty")
     private String type;
-    @NotBlank
+    @NotBlank(message = "Field Weakness cant be empty")
     private String weakness;
-
 
     public int getId() {
         return id;

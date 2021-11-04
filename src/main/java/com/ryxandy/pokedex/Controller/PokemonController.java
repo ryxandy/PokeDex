@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import java.util.Optional;
 
 @Controller
@@ -30,6 +29,7 @@ public class PokemonController {
     @PostMapping("/addPokemon")
     String addPokemon(Pokemon pokemon){
         System.out.println("Starting to create and adding your pokemon... ");
+        System.out.println(pokemon.getName() + "" + pokemon.getType());
         pokemonRepository.save(pokemon);
         return "redirect:/home";
     }
@@ -56,10 +56,7 @@ public class PokemonController {
         pokemonRepository.save(pokemons);
         return "redirect:/home";
      }
-
-
-
-    }
+}
 
 
 

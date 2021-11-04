@@ -16,14 +16,7 @@ public class BasicController {
 
     @PostMapping("/loginForm")
     String processLogin(Model model, String username, String password){
-        System.out.println(username);
-        if (username.equals("ash") && password.equals("88719588")){
-            System.out.println("Logado com sucesso");
-           return "redirect:/home";
-        }
-        System.out.println("Seu login falhou");
-        model.addAttribute("failLogin",1 );
-        return "Login";
+        return "redirect:/home";
     }
 
     @GetMapping(path = "/register")

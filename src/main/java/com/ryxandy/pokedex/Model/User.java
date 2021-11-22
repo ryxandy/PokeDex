@@ -1,21 +1,31 @@
 package com.ryxandy.pokedex.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
+
 
 @Entity
 public class User {
 
     @Id
     int id;
-    String username;
-    String password;
+    private String username;
+    private String password;
+    @ManyToOne
+    @JoinColumn(name = "pokemon_id")
+    private Pokemon pokemon;
 
     public User(int id, String username, String password) {
         this.id = id;
         this.username = username;
         this.password = password;
+    }
+
+    public User(int id, String username, String password, Pokemon pokemon) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.pokemon = pokemon;
     }
 
     public int getId() {
@@ -53,5 +63,13 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hash(id, username, password);
+    }
+
+    public Pokemon getPokemon() {
+        return pokemon;
+    }
+
+    public void setPokemon(Pokemon pokemon) {
+        this.pokemon = pokemon;
     }
 }
